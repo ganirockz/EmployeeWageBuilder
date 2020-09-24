@@ -3,15 +3,16 @@ package com.capgemini;
 public class EmpWageBuilder {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int is_full_time =1;
-		int emp_rate_per_hour = 20;
-		int empHrs = 0,empWage = 0;
-		double empCheck = Math.floor(Math.random()*10)%2;
-		if(empCheck == is_full_time)
+		int part_time = 1,full_time =2;
+		int empRatePerHour = 20,empHrs = 0,empWage = 0;
+		double empCheck = Math.floor(Math.random()*10)%3;
+		if(empCheck == part_time)
+			empHrs = 4;
+		else if(empCheck == full_time)
 			empHrs = 8;
 		else
 			empHrs = 0;
-		empWage = empHrs*emp_rate_per_hour;
+		empWage = empHrs*empRatePerHour;
 		System.out.println("Emp Wage: "+empWage);
 	}
 }
