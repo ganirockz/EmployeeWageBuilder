@@ -4,7 +4,7 @@ public class EmpWageBuilder {
 	public static final int is_part_time = 1;
 	public static final int is_full_time = 2,emp_rate_per_hour = 20,num_of_working_days = 20;
 	public static final int max_hrs_in_month = 100;
-	public static void main(String[] args) {
+	public static void computeEmpWage() {
 		// TODO Auto-generated method stub
 		int empHrs = 0,totalEmpHrs = 0,totalWorkingDays = 0;
 		while(totalEmpHrs <= max_hrs_in_month && totalWorkingDays < num_of_working_days) {
@@ -28,5 +28,8 @@ public class EmpWageBuilder {
 		}
 		int totalEmpWage = totalEmpHrs*emp_rate_per_hour;
 		System.out.println("Total Emp Wage: "+totalEmpWage);
+	}
+	public static void main(String[] args) {
+		computeEmpWage();
 	}
 }
