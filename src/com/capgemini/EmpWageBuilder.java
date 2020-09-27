@@ -1,12 +1,12 @@
 package com.capgemini;
 import java.util.*;
-public class EmpWageBuilder {
+public class EmpWageBuilder implements IComputeEmpWage{
 	public static final int IS_PART_TIME = 1;
 	public static final int IS_FULL_TIME = 2;
 	
-	public static ArrayList<CompanyEmpWage> companyList = new ArrayList<CompanyEmpWage>();
+	public ArrayList<CompanyEmpWage> companyList = new ArrayList<CompanyEmpWage>();
 	
-	public static void computeEmpWage() {
+	public void computeEmpWage() {
 		for(int i=0;i<companyList.size();i++) {
 			computeEmpWage(companyList.get(i));
 			System.out.println(companyList.get(i));
@@ -40,8 +40,9 @@ public class EmpWageBuilder {
 	}
 	
 	public static void main(String[] args) {
-		companyList.add(new CompanyEmpWage("DMart", 20, 2, 10));
-		companyList.add(new CompanyEmpWage("Reliance",10,4,20));
-		computeEmpWage();
+		EmpWageBuilder emp = new EmpWageBuilder();
+		emp.companyList.add(new CompanyEmpWage("DMart", 20, 2, 10));
+		emp.companyList.add(new CompanyEmpWage("Reliance",10,4,20));
+		emp.computeEmpWage();
 	}
 }
