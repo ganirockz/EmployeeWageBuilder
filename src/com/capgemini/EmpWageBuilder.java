@@ -34,7 +34,6 @@ public class EmpWageBuilder implements IComputeEmpWage{
 			
 		}
 		companyEmpWage.totalEmpWage = totalEmpHrs*companyEmpWage.emp_rate_per_hour;
-		//System.out.println("Total Emp Wage for company: "+company+" is: "+totalEmpWage);
 		companyEmpWage.setTotalEmpWage(companyEmpWage.totalEmpWage);
 		
 	}
