@@ -7,6 +7,7 @@ public class EmpWageBuilder implements IComputeEmpWage {
 	public static final int IS_FULL_TIME = 2;
 
 	public ArrayList<CompanyEmpWage> companyList = new ArrayList<CompanyEmpWage>();
+	public Map<String, CompanyEmpWage> companyToEmpWageMap = new HashMap<String, CompanyEmpWage>();
 
 	public void computeEmpWage() {
 		for (int i = 0; i < companyList.size(); i++) {
@@ -43,10 +44,25 @@ public class EmpWageBuilder implements IComputeEmpWage {
 
 	}
 
+	public void addEmpWageMap() {
+		for (int i = 0; i < companyList.size(); i++) {
+			companyToEmpWageMap.put(companyList.get(i).company, companyList.get(i));
+		}
+	}
+
+	public void displayMap() {
+		for (Map.Entry<String, CompanyEmpWage> entry : companyToEmpWageMap.entrySet()) {
+			System.out.println("Company: " + entry.getKey() + " Total Wage:" + entry.getValue().totalEmpWage);
+		}
+	}
+
 	public static void main(String[] args) {
 		EmpWageBuilder emp = new EmpWageBuilder();
 		emp.companyList.add(new CompanyEmpWage("DMart", 20, 2, 10));
 		emp.companyList.add(new CompanyEmpWage("Reliance", 10, 4, 20));
 		emp.computeEmpWage();
+		emp.addEmpWageMap();
+		emp.displayMap();
+		System.out.println(emp.companyToEmpWageMap.get("DMart").totalEmpWage);
 	}
 }
